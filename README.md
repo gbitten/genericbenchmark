@@ -17,12 +17,16 @@ go test -bench=.
 ```
 goos: linux
 goarch: amd64
-pkg: genericbenchmark/genericbenchmark
+pkg: genericbenchmark
 cpu: Intel(R) Pentium(R) CPU G3250 @ 3.20GHz
-BenchmarkGenericReduce1-2       49915670                23.80 ns/op
-BenchmarkNonGenericReduce1-2    150604094                7.590 ns/op
-BenchmarkGenericReduce2-2       50220974                23.52 ns/op
-BenchmarkNonGenericReduce2-2    46526138                24.14 ns/op
+BenchmarkGenericReduce-2                49898270                23.70 ns/op
+BenchmarkNonGenericReduce-2             154821860                7.527 ns/op
+BenchmarkGenericReduceF1-2              50696623                23.51 ns/op
+BenchmarkNonGenericReduceF1-2           153482284                7.588 ns/op
+BenchmarkGenericReduceF2-2              50168204                23.53 ns/op
+BenchmarkNonGenericReduceF2-2           47963671                23.78 ns/op
+BenchmarkGenericReduceF3-2              50880426                23.79 ns/op
+BenchmarkNonGenericReduceF3-2           50745277                23.51 ns/op
 PASS
-ok      genericbenchmark/genericbenchmark       7.291s
+ok      genericbenchmark        15.145s
 ```

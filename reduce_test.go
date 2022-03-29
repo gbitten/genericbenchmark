@@ -4,26 +4,50 @@ import (
 	"testing"
 )
 
-func BenchmarkGenericReduce1(b *testing.B) {
+func BenchmarkGenericReduce(b *testing.B) {
 	for i := 0; i < b.N; i++ {
 		GenericReduce[int,int](Numbers, func(acc, current int) int { return acc + current }, 0)
 	}
 }
 
-func BenchmarkNonGenericReduce1(b *testing.B) {
+func BenchmarkNonGenericReduce(b *testing.B) {
 	for i := 0; i < b.N; i++ {
 		NonGenericReduce(Numbers, func(acc, current int) int { return acc + current }, 0)
 	}
 }
 
-func BenchmarkGenericReduce2(b *testing.B) {
+func BenchmarkGenericReduceF1(b *testing.B) {
 	for i := 0; i < b.N; i++ {
-		GenericReduce[int,int](Numbers, F, 0)
+		GenericReduce[int,int](Numbers, F1, 0)
 	}
 }
 
-func BenchmarkNonGenericReduce2(b *testing.B) {
+func BenchmarkNonGenericReduceF1(b *testing.B) {
 	for i := 0; i < b.N; i++ {
-		NonGenericReduce(Numbers, F, 0)
+		NonGenericReduce(Numbers, F1, 0)
+	}
+}
+
+func BenchmarkGenericReduceF2(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		GenericReduce[int,int](Numbers, F2, 0)
+	}
+}
+
+func BenchmarkNonGenericReduceF2(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		NonGenericReduce(Numbers, F2, 0)
+	}
+}
+
+func BenchmarkGenericReduceF3(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		GenericReduce[int,int](Numbers, F3, 0)
+	}
+}
+
+func BenchmarkNonGenericReduceF3(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		NonGenericReduce(Numbers, F3, 0)
 	}
 }

@@ -5,7 +5,10 @@ import (
 )
 
 var Numbers = []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
-var F = func(acc, current int) int { return acc + current }
+func F1 (acc, current int) int { return acc + current }
+var F2 = F1
+var F3 = func(acc, current int) int { return acc + current }
+
 
 func GenericReduce[T, M any](s []T, f func(M, T) M, initValue M) M {
     acc := initValue
@@ -24,8 +27,16 @@ func NonGenericReduce ( s[] int, f func(int, int) int, initValue int) int {
 }
 
 func main() {
-    sum := GenericReduce(Numbers, F, 0)
+    sum := GenericReduce(Numbers, F1, 0)
     fmt.Println(sum)
-    sum = NonGenericReduce(Numbers, F, 0)
+    sum = NonGenericReduce(Numbers, F1, 0)
+    fmt.Println(sum)
+    sum = GenericReduce(Numbers, F2, 0)
+    fmt.Println(sum)
+    sum = NonGenericReduce(Numbers, F2, 0)
+    fmt.Println(sum)
+    sum = GenericReduce(Numbers, F3, 0)
+    fmt.Println(sum)
+    sum = NonGenericReduce(Numbers, F3, 0)
     fmt.Println(sum)
 }
