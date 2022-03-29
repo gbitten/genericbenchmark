@@ -9,7 +9,7 @@ Go 1.18
 ## To benchmark
 
 ```shell
-go test -bench=.
+go test -bench=. -buildvcs=false
 ```
 
 ## My benchmark
